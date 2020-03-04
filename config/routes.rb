@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   end
 
   get '/agenda' => "agenda#index", as: :welcome_path
+
+  resources :reservations, except: [:new, :edit]
+  post '/reservations/:day/:hour' => "reservations#create", as: :create_reservation
 end

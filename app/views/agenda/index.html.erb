@@ -1,12 +1,24 @@
-<h1 class="mt-5">Reservas</h1>
+<h1 class="mt-3">Reservas</a></h1>
 
-<table class="table">
+<table id="agenda" class="table table-bordered">
   <tr>
-    <th>Quem?</th>
-    <th>Setor Requisitante</th>
-    <th>Início</th>
-    <th>Fim</th>
-    <th>&nbsp</th>
+    <th></th>
+    <th>Segunda</th>
+    <th>Terça</th>
+    <th>Quarta</th>
+    <th>Quinta</th>
+    <th>Sexta</th>
   </tr>
+
+  <% (6..23).each do |hour| %>
+    <tr>
+      <td class="shrink"><%= hour %>h</th>
+      <%= render partial: "reservation", locals: {reservations: @reservations, day: "1", hour: hour} %>
+      <%= render partial: "reservation", locals: {reservations: @reservations, day: "2", hour: hour} %>
+      <%= render partial: "reservation", locals: {reservations: @reservations, day: "3", hour: hour} %>
+      <%= render partial: "reservation", locals: {reservations: @reservations, day: "4", hour: hour} %>
+      <%= render partial: "reservation", locals: {reservations: @reservations, day: "5", hour: hour} %>
+    <tr>
+  <% end %>
 
 </table>

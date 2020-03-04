@@ -1,0 +1,3 @@
+$("#reservation-<%= j "#{@day}-#{@hour}"%>").html("Reservado a <%= j @reservation.user.email %> <br /> <%= j link_to "cancelar reserva", reservation_path(@reservation), { method: "DELETE", remote: true } %>");
+$("#reservation-<%= j "#{@day}-#{@hour}"%>").addClass("occupied");
+

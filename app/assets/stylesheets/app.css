@@ -1,5 +1,4 @@
 html {
-  background-color: #56baed;
 }
 
 body {
@@ -265,4 +264,23 @@ input[type=text]:placeholder {
 
 #icon {
   width:60%;
+}
+
+
+/* AGENDA STUFF */
+table td.shrink {
+  white-space: nowrap
+}
+
+table#agenda th, table#agenda td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+table td.occupied {
+  color: var(--red);
+}
+
+table td.free {
+  color: var(--green);
 }

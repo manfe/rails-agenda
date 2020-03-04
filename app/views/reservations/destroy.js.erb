@@ -1,0 +1,2 @@
+$("#reservation-<%= j "#{@day}-#{@hour}"%>").html("<%= j link_to "Reservar", create_reservation_path(@day, @hour), { method: "POST", remote: true, class: "reserve"} %>");
+$("#reservation-<%= j "#{@day}-#{@hour}"%>").removeClass("occupied");

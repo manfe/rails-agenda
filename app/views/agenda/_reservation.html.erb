@@ -1,0 +1,14 @@
+<% 
+  reservation = reservations.select {|reservation| reservation.start_at.wday == day.to_i && reservation.start_at.hour == hour.to_i}
+%>
+
+<% if reservation.any? %>
+  <td id="reservation<%= "-#{day}-#{hour}" %>" class="occupied">
+    Reservado a <%= reservation.first.user.email %> <br />
+    <%= link_to "cancelar reserva", reservation_path(reservation), { method: "DELETE", remote: true } %>
+  </td>
+<% else %>
+  <td id="reservation<%= "-#{day}-#{hour}" %>">
+    <%= link_to "Reservar", create_reservation_path(day, hour), { method: "POST", remote: true, class: "reserve"} %>
+  </td>
+<%end %>

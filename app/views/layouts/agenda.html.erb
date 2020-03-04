@@ -12,17 +12,27 @@
   <body>
     <!-- As a link -->
     <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="<%= agenda_index_url %>">Agenda</a>
+      <div class="container">
+        <a class="navbar-brand" href="<%= agenda_index_url %>">Agenda</a>
+
+        <% if user_signed_in? %>
+          <% #TODO: TROCAR PELO NOME POSTERIORMENTE %>
+          <span class="float-right">
+            <b id="user" data-email="<%= current_user.email %>" data-id="<%= current_user.id %>"><%= current_user.email %></b> | 
+            <%= link_to('Sair', destroy_user_session_path, method: :delete) %>
+          </span>
+        <% end %>
+      </div>
     </nav>
 
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 mt-2">
           <% if notice %>
-            <p class="notice"><%= notice %></p>
+            <p class="notice alert alert-info"><%= notice %></p>
           <% end %>
           <% if alert %>
-            <p class="alert"><%= alert %></p>
+            <p class="alert alert-danger"><%= alert %></p>
           <% end %>
 
           <%= yield %>
